@@ -1,0 +1,29 @@
+# ==========================================================================
+# CONFIGURACION DE SEGURIDAD PASIVA Y POLITICAS DE ENTREGA
+# Conforme a los lineamientos del manual de alto rendimiento
+# ==========================================================================
+
+# 1. Headers de Seguridad Estrictos y Mitigacion de Riesgos
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
+    Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; data:;"
+    
+    # Header explicito adicional para instruir a rastreadores alternativos la no-indexacion
+    Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
+
+# 2. Activacion de Compresion Gzip para Minimizacion de Carga Inicial
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
+</IfModule>
+
+# 3. Politicas de Cache para Optimizacion de Core Web Vitals (TTL Extenso)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>

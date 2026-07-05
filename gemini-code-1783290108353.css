@@ -1,0 +1,248 @@
+/* ==========================================================================
+   RESET GENERAL Y VARIABLES DE LA PALETA ORIGINAL
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #1C0B2B;
+  --bg-card: #301C41;
+  --bg-element: #413B6B;
+  --bg-accent: #5C65C0;
+  --text-highlight: #6F95FF;
+  --text-light: #FFFFFF;
+  --text-muted: #B3A4C4;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   HEADER / SELECTOR DE IDIOMA FLOTANTE
+   ========================================================================== */
+.lang-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid var(--bg-element);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lang-btn.active {
+  background-color: var(--bg-accent);
+  color: var(--text-light);
+  border-color: var(--bg-accent);
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE LA TARJETA PRINCIPAL (CARD CONTAINER)
+   ========================================================================== */
+.card {
+  background-color: var(--bg-card);
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid var(--bg-element);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+/* Avatar adaptable para Iniciales o Imagen Futura */
+.avatar-container {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: var(--bg-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 2px solid var(--text-highlight);
+  overflow: hidden;
+}
+
+.avatar-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.location-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-highlight);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.icon-geo {
+  flex-shrink: 0;
+}
+
+.profile-bio {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   BOTON DE ACCION PRINCIPAL (DOWNLOAD VCARD)
+   ========================================================================== */
+.action-main {
+  margin-bottom: 24px;
+}
+
+.vcard-download-btn {
+  width: 100%;
+  background-color: var(--bg-accent);
+  color: var(--text-light);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s;
+}
+
+.icon-download {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   RETICULA DE ACCESOS DIRECTOS (GRID LINKS)
+   ========================================================================== */
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grid-item {
+  background-color: var(--bg-element);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+  border: 1px solid transparent;
+}
+
+/* ==========================================================================
+   OPTIMIZACION DE ENTRADAS UNIVERSALES (INTERACTION MEDIA QUERIES)
+   ========================================================================== */
+/* Optimizacion de areas de clic tactiles (Minimo 48px segun manual) */
+@media (pointer: coarse) {
+  .vcard-download-btn,
+  .grid-item {
+    min-height: 50px;
+    padding: 14px;
+  }
+  .lang-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}
+
+/* Efectos fluidos acelerados por hardware para uso con Mouse */
+@media (pointer: fine) {
+  .vcard-download-btnh,
+  .grid-item,
+  .lang-btn {
+    min-height: 46px;
+    padding: 12px;
+  }
+  
+  .vcard-download-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+  }
+
+  .grid-item:hover {
+    background-color: var(--bg-accent);
+    border-color: var(--text-highlight);
+    transform: translateY(-2px);
+  }
+  
+  .lang-btn:hover {
+    border-color: var(--text-highlight);
+  }
+}
+
+/* Accesibilidad Nativa: Indicadores de foco claros mediante teclado */
+.vcard-download-btn:focus-visible,
+.grid-item:focus-visible,
+.lang-btn:focus-visible {
+  outline: 3px solid var(--text-highlight);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   FOOTER CONTAINER
+   ========================================================================== */
+.footer-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer-container p {
+  font-size: 0.75rem;
+  color: var(--bg-element);
+  letter-spacing: 0.5px;
+}

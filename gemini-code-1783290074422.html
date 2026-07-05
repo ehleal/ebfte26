@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="US-ASCII">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edgar Leal | Digital Card</title>
+  
+  <!-- Proteccion de Privacidad Absoluta: Bloqueo de Indexacion e IA -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+  
+  <!-- Meta Tags Open Graph optimizados para Apple Messages y Redes -->
+  <meta property="og:title" content="Edgar Leal">
+  <meta property="og:description" content="Digital Networking Card">
+  <meta property="og:type" content="profile">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Selector de Idioma Flotante Superior -->
+  <header class="lang-container">
+    <nav aria-label="Language selection">
+      <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')" aria-label="Change language to English">EN</button>
+      <button id="btn-es" class="lang-btn" onclick="setLanguage('es')" aria-label="Cambiar idioma a Espanol">ES</button>
+    </nav>
+  </header>
+
+  <!-- Tarjeta Central Principal -->
+  <main class="card" data-ai-content="private">
+    
+    <!-- Seccion de Identidad -->
+    <header class="card-header">
+      <div class="avatar-container" id="avatar-box">
+        <!-- Iniciales por defecto. Para cambiar a foto en el futuro, reemplazar -->
+        <!-- el texto por: <img src="profile.webp" alt="Edgar Leal" class="avatar-img"> -->
+        <span class="avatar-text">EL</span>
+      </div>
+      <h1 class="profile-name">Edgar Leal</h1>
+      <div class="location-box">
+        <svg class="icon-geo" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <span id="txt-location">Monterrey, Mexico</span>
+      </div>
+      <p class="profile-bio" id="txt-bio">Vegan pet friendly</p>
+    </header>
+
+    <!-- Accion Principal: Descarga de Contacto Universal (vCard) -->
+    <section class="action-main">
+      <button id="btn-vcard" class="vcard-download-btn" onclick="downloadVCard()">
+        <svg class="icon-download" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+        </svg>
+        <span id="txt-vcard-btn">Save Contact Info</span>
+      </button>
+    </section>
+
+    <!-- Retricula de Enlaces de Comunicacion Directa (1 Clic) -->
+    <nav class="links-grid" aria-label="Contact links">
+      
+      <!-- WhatsApp Direct Link -->
+      <a href="https://wa.me/528111770317" class="grid-item" target="_blank" rel="noopener nofollow">
+        <span class="item-text">WhatsApp</span>
+      </a>
+
+      <!-- Instagram Direct Link con Guiones Bajos Integrados -->
+      <a href="https://www.instagram.com/_edgar.leal_/" class="grid-item" target="_blank" rel="noopener nofollow">
+        <span class="item-text">Instagram</span>
+      </a>
+
+      <!-- TikTok Direct Link -->
+      <a href="https://www.tiktok.com/@edgar.leal81" class="grid-item" target="_blank" rel="noopener nofollow">
+        <span class="item-text">TikTok</span>
+      </a>
+
+      <!-- Mailto Direct Link -->
+      <a href="mailto:edgarhlealb@gmail.com" class="grid-item">
+        <span class="item-text" id="txt-email-btn">Email Me</span>
+      </a>
+
+    </nav>
+  </main>
+
+  <!-- Footer de Privacidad Descriptivo Explicito -->
+  <footer class="footer-container">
+    <p id="txt-footer">Private Networking Card | Indexing Restricted</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
