@@ -248,26 +248,37 @@ body {
 }
 
 /* ==========================================================================
-   NUEVO: CONTENEDORES Y CODIGOS QR
+   NUEVO: CONTENEDORES Y CODIGOS QR RESPONSIVOS
    ========================================================================== */
    .grid-item-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Espacio vertical entre el boton y el QR */
+    gap: 12px; /* Margen de separacion vertical optimo */
   }
-  
+    
   /* Forzar que el enlace ocupe todo el ancho disponible en su columna de la cuadricula */
   .grid-item-container .grid-item {
     width: 100%;
   }
-  
+    
   .qr-display-img {
     display: block;
-    width: 110px;        /* Tamano optimo para lectura en pantallas mobiles */
-    height: 110px;
+    width: 32vw;          /* Escalable dinamicamente en pantallas pequenas */
+    max-width: 120px;     /* Limite estricto para pantallas grandes en la tarjeta */
+    min-width: 90px;      /* Tamano minimo para asegurar lectura fisica del sensor */
+    height: auto;         /* Mantiene la relacion de aspecto perfecta 1:1 */
+    aspect-ratio: 1 / 1;
     border-radius: 12px;
-    background-color: #FFFFFF; /* Fondo blanco de alto contraste para facilitar el escaneo */
-    padding: 8px;        /* Margen interno para proteger los bordes del QR */
+    background-color: #FFFFFF; /* Fondo de alto contraste indispensable para el escaner */
+    padding: 8px;         /* Zona de amortiguacion (quiet zone) del codigo QR */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+  
+  /* Efecto sutil al pasar el cursor */
+  @media (pointer: fine) {
+    .qr-display-img:hover {
+      transform: scale(1.03);
+    }
   }
