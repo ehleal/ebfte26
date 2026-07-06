@@ -246,3 +246,28 @@ body {
   color: var(--bg-element);
   letter-spacing: 0.5px;
 }
+
+/* ==========================================================================
+   NUEVO: CONTENEDORES Y CODIGOS QR
+   ========================================================================== */
+   .grid-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Espacio vertical entre el boton y el QR */
+  }
+  
+  /* Forzar que el enlace ocupe todo el ancho disponible en su columna de la cuadricula */
+  .grid-item-container .grid-item {
+    width: 100%;
+  }
+  
+  .qr-display-img {
+    display: block;
+    width: 110px;        /* Tamano optimo para lectura en pantallas mobiles */
+    height: 110px;
+    border-radius: 12px;
+    background-color: #FFFFFF; /* Fondo blanco de alto contraste para facilitar el escaneo */
+    padding: 8px;        /* Margen interno para proteger los bordes del QR */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
