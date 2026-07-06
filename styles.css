@@ -264,16 +264,21 @@ body {
     
   .qr-display-img {
     display: block;
-    width: 32vw;          /* Escalable dinamicamente en pantallas pequenas */
-    max-width: 120px;     /* Limite estricto para pantallas grandes en la tarjeta */
-    min-width: 90px;      /* Tamano minimo para asegurar lectura fisica del sensor */
-    height: auto;         /* Mantiene la relacion de aspecto perfecta 1:1 */
-    aspect-ratio: 1 / 1;
+    
+    /* Tamaño fluido y responsivo controlado:
+       - Mínimo: 120px (evita que se vuelva ilegible en pantallas chicas)
+       - Preferido: 15vw (escala fluidamente con el ancho de la pantalla)
+       - Máximo: 240px (evita que se desborde o se vea gigante en monitores grandes)
+    */
+    width: clamp(120px, 15vw, 240px);
+    height: auto; /* Permite que el aspecto ratio controle la altura automáticamente */
+    aspect-ratio: 1 / 1; /* Garantiza la proporción perfecta 1:1 indispensable para QR */
+    
     border-radius: 12px;
-    background-color: #FFFFFF; /* Fondo de alto contraste indispensable para el escaner */
-    padding: 8px;         /* Zona de amortiguacion (quiet zone) del codigo QR */
+    background-color: #FFFFFF; /* Fondo de alto contraste indispensable para el escáner */
+    padding: 8px;              /* Zona de amortiguación (quiet zone) del código QR */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    box-sizing: border-box;    /* Asegura que el padding no altere las dimensiones del clamp */
   }
   
   /* Efecto sutil al pasar el cursor */
