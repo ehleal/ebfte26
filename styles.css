@@ -164,11 +164,11 @@ body {
 /* ==========================================================================
    RETICULA DE ACCESOS DIRECTOS (GRID LINKS)
    ========================================================================== */
-.links-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
+   .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
 
 .grid-item {
   background-color: var(--bg-element);
@@ -271,6 +271,7 @@ body {
        - Máximo: 240px (evita que se desborde o se vea gigante en monitores grandes)
     */
     width: clamp(120px, 15vw, 240px);
+    max-width: 100%;
     height: auto; /* Permite que el aspecto ratio controle la altura automáticamente */
     aspect-ratio: 1 / 1; /* Garantiza la proporción perfecta 1:1 indispensable para QR */
     
